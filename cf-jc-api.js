@@ -130,6 +130,8 @@ window.onload = function() {
     var urls = [
         "114514.rtx.al",
         "113514.rtx.al",
+        "shriko.sbs",
+        "sbs.shriko.sbs",
     ];
     checkCloudflareForUrls(urls);
 };
