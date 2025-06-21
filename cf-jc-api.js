@@ -128,8 +128,8 @@ async function redirectFastestDomain() {
 // 页面加载后检查域名是否属于 Cloudflare
 window.onload = function() {
     var urls = [
-        "shriko.sbs",
-        "sbs.shriko.sbs",
+        "114514.rtx.al",
+        "113514.rtx.al",
     ];
     checkCloudflareForUrls(urls);
 };
