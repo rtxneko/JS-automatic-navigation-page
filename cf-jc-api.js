@@ -128,8 +128,8 @@ async function redirectFastestDomain() {
 // 页面加载后检查域名是否属于 Cloudflare
 window.onload = function() {
     var urls = [
-        "blog.hgtrojan.com", // 第一个备选地址
-        "blog.hgtrojan.com", // 第二个备选地址
+        "114514.rtx.al", // 第一个备选地址
+        "113514.rtx.al", // 第二个备选地址
     ];
     checkCloudflareForUrls(urls);
 };
