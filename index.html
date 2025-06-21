@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DoriyaNetwork Jump</title>
-    <script src="./cf-jc-api.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="./cf-jc-api.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,16 +15,27 @@
         }
         
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
-                        url('https://shriko.imgix.net/illust_114369152_20240509_225747.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             min-height: 100vh;
             color: #fff;
             padding: 20px;
             position: relative;
             overflow-x: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
+                        url('https://shriko.imgix.net/illust_114369152_20240509_225747.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* 移动端背景图片 */
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
+                            url('https://shriko.imgix.net/illust_115852598_20250216_114647.png');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
         }
         
         /* 装饰性元素 */
@@ -36,6 +47,7 @@
             left: 0;
             z-index: -1;
             overflow: hidden;
+            pointer-events: none;
         }
         
         .decoration div {
@@ -194,30 +206,53 @@
             backdrop-filter: blur(5px);
         }
         
+        /* 移动端专属样式 */
         @media (max-width: 768px) {
-            .container {
-                max-width: calc(100% - 40px);
-                left: 20px;
-                bottom: 20px;
+            body {
                 padding: 15px;
+            }
+            
+            .container {
+                max-width: calc(100% - 30px);
+                left: 15px;
+                right: 15px;
+                bottom: 20px;
+                padding: 18px;
                 gap: 15px;
+                flex-direction: row;
+                align-items: center;
             }
             
             h1 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
             .logo {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
             }
             
             .logo i {
-                font-size: 20px;
+                font-size: 22px;
             }
             
             .status-title {
-                font-size: 0.9rem;
+                font-size: 0.92rem;
+            }
+            
+            .info-text {
+                font-size: 0.82rem;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.95rem;
+            }
+            
+            footer {
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.7rem;
             }
         }
         
@@ -225,15 +260,94 @@
             .container {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 12px;
+                gap: 15px;
+                padding: 20px;
             }
             
             .logo {
                 align-self: center;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo i {
+                font-size: 26px;
             }
             
             .content {
                 width: 100%;
+                text-align: center;
+            }
+            
+            .status-container {
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                display: block;
+                margin-bottom: 15px;
+            }
+            
+            .btn {
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .info-text {
+                text-align: center;
+                font-size: 0.88rem;
+            }
+            
+            /* 移动端导航指示器 */
+            .mobile-nav-indicator {
+                position: fixed;
+                top: 10px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                z-index: 100;
+            }
+            
+            .mobile-nav-indicator span {
+                display: inline-block;
+                padding: 6px 20px;
+                background: rgba(23, 25, 35, 0.8);
+                border-radius: 0 0 10px 10px;
+                font-size: 0.8rem;
+                color: #6a93ff;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        /* 平板设备优化 */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .container {
+                max-width: 450px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: slideUp 0.8s ease-out;
+            }
+            
+            @keyframes slideUp {
+                0% { transform: translate(-50%, 100px); opacity: 0; }
+                100% { transform: translate(-50%, 0); opacity: 1; }
+            }
+            
+            .content {
+                text-align: center;
+            }
+            
+            .status-container {
+                justify-content: center;
+            }
+            
+            .btn {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 220px;
             }
         }
     </style>
@@ -243,6 +357,11 @@
     <div class="decoration">
         <div class="dec-1"></div>
         <div class="dec-2"></div>
+    </div>
+    
+    <!-- 移动端导航指示器 -->
+    <div class="mobile-nav-indicator">
+        <span>DoriyaNet is the Best!</span>
     </div>
     
     <div class="container">
@@ -256,7 +375,7 @@
             <div class="status-container">
                 <div class="status-title">
                     <i class="fas fa-sync-alt"></i>
-                    <span>检测最优域名...</span>
+                    <span>最快端点搜寻中ww</span>
                 </div>
                 <div class="loader"></div>
             </div>
@@ -276,27 +395,64 @@
     </footer>
     
     <script>
-        // 添加简单的动画效果增强用户体验
+        // 移动端优化脚本
         document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.container');
+            // 检测移动设备
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             
-            // 模拟检测过程
+            // 更新状态文本
             setTimeout(() => {
                 const statusTitle = document.querySelector('.status-title span');
-                statusTitle.textContent = "正在重定向...";
-            }, 3000);
+                statusTitle.textContent = isMobile ? "最快端点搜寻中ww" : "正在重定向...";
+            }, 2000);
             
-            // 鼠标跟随效果
+            // 装饰元素动画
             document.addEventListener('mousemove', (e) => {
-                const dec1 = document.querySelector('.dec-1');
-                const dec2 = document.querySelector('.dec-2');
-                
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                dec1.style.transform = `translate(${x * 20 - 10}px, ${y * 20 - 10}px)`;
-                dec2.style.transform = `translate(${-x * 30 + 15}px, ${-y * 30 + 15}px)`;
+                if (window.innerWidth > 768) {
+                    const dec1 = document.querySelector('.dec-1');
+                    const dec2 = document.querySelector('.dec-2');
+                    
+                    const x = e.clientX / window.innerWidth;
+                    const y = e.clientY / window.innerHeight;
+                    
+                    dec1.style.transform = `translate(${x * 20 - 10}px, ${y * 20 - 10}px)`;
+                    dec2.style.transform = `translate(${-x * 30 + 15}px, ${-y * 30 + 15}px)`;
+                }
             });
+            
+            // 移动设备触摸反馈
+            if (isMobile) {
+                const btn = document.querySelector('.btn');
+                btn.addEventListener('touchstart', () => {
+                    btn.style.transform = 'scale(0.98)';
+                    btn.style.boxShadow = '0 2px 10px rgba(37, 117, 252, 0.3)';
+                });
+                
+                btn.addEventListener('touchend', () => {
+                    btn.style.transform = '';
+                    btn.style.boxShadow = '';
+                });
+            }
+            
+            // 模拟重定向过程
+            setTimeout(() => {
+                const loader = document.querySelector('.loader');
+                loader.style.borderTopColor = '#4ade80';
+                
+                const statusTitle = document.querySelector('.status-title span');
+                statusTitle.textContent = "Jump！";
+                statusTitle.style.color = '#4ade80';
+                
+                // 添加成功图标
+                const checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check-circle';
+                document.querySelector('.status-container').appendChild(checkIcon);
+                
+                // 移除加载器
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000);
+            }, 4000);
         });
     </script>
 </body>
