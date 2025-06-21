@@ -130,8 +130,6 @@ window.onload = function() {
     var urls = [
         "114514.rtx.al", // 第一个备选地址
         "113514.rtx.al", // 第二个备选地址
-        "sbs.shriko.sbs",
-        "shriko.sbs",
     ];
     checkCloudflareForUrls(urls);
 };
